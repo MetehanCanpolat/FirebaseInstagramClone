@@ -21,6 +21,15 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         imageView.isUserInteractionEnabled = true
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(chooseImage))
         imageView.addGestureRecognizer(gestureRecognizer)
+        
+        //klavye dışına dokununca klavye kapatma
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    //klavye dışına dokununca klavye kapatma
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @objc func chooseImage(){
